@@ -14,7 +14,7 @@ NC='\033[0m'
 
 TESTNET_DIR='/tmp/testnet'
 
-EOS=~/eeos/eos/build
+EOS=~/bucky_eos/eos/build
 
 BIOS_HTTP=8888
 BIOS_P2P=9876
@@ -46,11 +46,11 @@ run_bios() {
    printf "${CYAN}Starting Bios Node at [${WHITE}${BIOS_HTTP}, ${BIOS_P2P}${CYAN}]\n${NC}"
    ${NODEOS} -d ${BIOS_DIR} --config-dir ${BIOS_DIR} &> outputs/bios.out &
    BIOS_PID=$!
-   sleep 0.3
+   sleep 0.7
    WALLET_PW=`${CLEOS} -p ${BIOS_HTTP} wallet create | grep -e "\".*\"" | sed -e "s/\"//g"`
    printf "${BLUE}Created wallet [${LGRAY}${WALLET_PW}${BLUE}]${NC}\n"
    printf "${BLUE}Unlocking wallet ${NC}\n"
-   sleep 0.2
+   sleep 0.7
    echo "spawn ${CLEOS} -p ${BIOS_HTTP} wallet unlock; expect \"password:\" {send \"${WALLET_PW}\r\"}" | expect &>  /dev/null
    printf "${BLUE}Setting eosio.bios ${NC}\n"
    ${CLEOS} -p ${BIOS_HTTP} set contract eosio ${EOS}/contracts/eosio.bios &> /dev/null
@@ -228,7 +228,7 @@ done
 if [ "${#PRODS[@]}" -gt "0" ]; then
    set_producers
 fi
-sleep 0.2
+sleep 0.7
 python parse_map.py net.map ${CLEOS}
 
 get_response
