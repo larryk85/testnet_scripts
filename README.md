@@ -15,4 +15,4 @@ To use:
 4. `x or X` will exit the testnet, kill all nodes and destroy any temporary data (this includes the chain data)
 
 To analyze nodes:
-1. Run *tail -f node.`n`.out*** to see the nodes output in realtime.
+1. Run *tail -f node.`n`.out* to see the nodes output in realtime.
