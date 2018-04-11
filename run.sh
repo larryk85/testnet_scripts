@@ -209,6 +209,7 @@ get_response() {
    esac
 }
 
+mkdir -p outputs
 printf "${GREEN}\t--- Starting EOSIO Local Testnet ---\n\n${NC}"
 
 printf "${RED}"
