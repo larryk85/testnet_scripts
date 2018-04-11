@@ -13,3 +13,6 @@ To use:
 2. `d or D` will disconnect a node *n* from *m*
 3. `k or K` will kill a node *n*
 4. `x or X` will exit the testnet, kill all nodes and destroy any temporary data (this includes the chain data)
+
+To analyze nodes:
+1. Run *tail -f node.`n`.out*** to see the nodes output in realtime.
